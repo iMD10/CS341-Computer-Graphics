@@ -3,11 +3,15 @@
 #include <cmath>
 
 // Constants for the grid and window
-const int WINDOW_WIDTH = 500;
-const int WINDOW_HEIGHT = 300;
-const int CELL_SIZE = 5;
+const int WINDOW_WIDTH = 400;
+const int WINDOW_HEIGHT = 400;
+const int CELL_SIZE = 2;
 const int GRID_COLS = WINDOW_WIDTH / CELL_SIZE;
 const int GRID_ROWS = WINDOW_HEIGHT / CELL_SIZE;
+
+int updateCounter = 0;     // Counter to control particle updates
+const int updateInterval = 2;  // Update grid every 2 frames
+
 
 // Grids for current and next states
 int grid[GRID_COLS][GRID_ROWS] = { 0 };
@@ -145,10 +149,17 @@ void display() {
 }
 
 // Idle function for continuous updates
+
+// Idle function for continuous updates
 void idle() {
-    updateGrid();
-    glutPostRedisplay();
+    updateCounter++;
+    if (updateCounter >= updateInterval) {
+        updateGrid();      // Update particles only at the defined interval
+        updateCounter = 0; // Reset the counter
+    }
+    glutPostRedisplay();   // Redraw screen at each frame
 }
+
 
 // Mouse function to handle dragging
 void mouseMotion(int x, int y) {
