@@ -46,7 +46,7 @@ void hsvToRgb(float h, float s, float v, float& r, float& g, float& b) {
 // Mouse drag function to add sand particles
 void mouseDragged(int x, int y) {
     int mouseCol = x / CELL_SIZE;
-    int mouseRow = (WINDOW_HEIGHT - y) / CELL_SIZE;  // Flip Y-axis here
+    int mouseRow = (y) / CELL_SIZE;  // Flip Y-axis here
 
     int matrix = 5;
     int extent = matrix / 2;
