@@ -190,15 +190,15 @@ void display() {
     float boatY = waterHeight + sin(boatOscillation) * 1.0f;
     drawBoat(boatX, boatY);
 
-    if (isRaining) {
-        for (const auto& particle : particles) {
-            glColor4f(0.0f, 0.0f, 1.0f, particle.alpha);
-            glPointSize(4.0f);
-            glBegin(GL_POINTS);
-            glVertex2f(particle.x, particle.y);
-            glEnd();
-        }
+    
+    for (const auto& particle : particles) {
+        glColor4f(0.0f, 0.0f, 1.0f, particle.alpha);
+        glPointSize(4.0f);
+        glBegin(GL_POINTS);
+        glVertex2f(particle.x, particle.y);
+        glEnd();
     }
+    
 
     glFlush();
 }
@@ -206,31 +206,33 @@ void display() {
 void update(int value) {
     cloudOffset += 0.1f;
     if (cloudOffset > 200) {
-        cloudOffset = -160.0f;
+        cloudOffset = -190.0f;
     }
 
-    if (isRaining) {
-        for (size_t i = 0; i < particles.size(); ++i) {
-            particles[i].y -= particles[i].speed;
-            particles[i].x += wind;
-            if (particles[i].y < waterHeight) {
-                particles.erase(particles.begin() + i);
-                --i;
-                waterHeight += 0.02f;
-                if (waterHeight > 25) waterHeight = 25;
-            }
-        }
-        boatOscillation += 0.1f;
-        if (boatOscillation > 2 * 3.14159f) {
-            boatOscillation -= 2 * 3.14159f;
+    
+    for (size_t i = 0; i < particles.size(); ++i) {
+        particles[i].y -= particles[i].speed;
+        particles[i].x += wind;
+        if (particles[i].y < waterHeight) {
+            particles.erase(particles.begin() + i);
+            --i;
+            waterHeight += 0.02f;
+            if (waterHeight > 25) waterHeight = 25;
         }
     }
-    else {
-        if (waterHeight > 0.0f) {
-            waterHeight -= 0.02f;
-            if (waterHeight < 2.0f) waterHeight = 2.0f;
+    boatOscillation += 0.1f;
+    if (boatOscillation > 2 * 3.14159f) {
+        boatOscillation -= 2 * 3.14159f;
+    }
+    
+    if (waterHeight > 0.0f) {
+        waterHeight -= 0.02f;
+        if (waterHeight < 2.0f) {
+            waterHeight = 2.0f;
+            boatOscillation = 0;
         }
     }
+    
 
     glutPostRedisplay();
     glutTimerFunc(16, update, 0);
