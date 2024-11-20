@@ -1,5 +1,6 @@
 # Interactive Rain Simulation with Waves 🌧️
-![image](https://github.com/user-attachments/assets/417c3ae9-2268-48c8-8990-87bbb63b5fec)
+![image](https://i.pinimg.com/originals/41/a7/f3/41a7f3eada3c52ea4403fdfc12c6b4f3.gif)
+
 
 
 An engaging computer graphics project that simulates interactive rain, dynamic water waves, and a visually enriched environment. Built using **OpenGL**, this project showcases concepts of real-time graphics rendering, animations, and user interaction.
