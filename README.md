@@ -1,4 +1,6 @@
 # Interactive Rain Simulation with Waves 🌧️
+![image](https://github.com/user-attachments/assets/417c3ae9-2268-48c8-8990-87bbb63b5fec)
+
 
 An engaging computer graphics project that simulates interactive rain, dynamic water waves, and a visually enriched environment. Built using **OpenGL**, this project showcases concepts of real-time graphics rendering, animations, and user interaction.
 
@@ -16,3 +18,37 @@ An engaging computer graphics project that simulates interactive rain, dynamic w
 ## Technologies Used
 - **C++**: Core programming language.
 - **OpenGL**: Graphics library for rendering and animation.
+
+## How to Use
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/iMD10/CS341-Rainy-Day.git
+   cd CS341-Rainy-Day
+2. Compile the main program (RainyDay.cpp) using your C++ compiler with OpenGL support:
+   ```bash
+   g++ -o rainy_day RainyDay.cpp -lGL -lGLU -lglut
+   ```
+3. Run the program:
+    ```bash
+    ./rainy_day
+    ```
+4. Interact with the simulation:
+    - Drag the mouse to generate rain dynamically.
+    - Observe the rising water level and wave animations.
+    - Watch the boat float and oscillate with the waves.
+
+## Learning Objectives
+This project is part of a Computer Graphics Course to explore:
+
+  - Real-time rendering using OpenGL.
+  - Animation techniques such as sine wave motion.
+  - User interaction to trigger dynamic simulations.
+  - Building immersive environments with natural elements like rain, water, and waves.
+## Screenshot
+![image](https://github.com/user-attachments/assets/cca7a8ee-673b-4df0-b913-4ea0e18cd90d)
+
+
+
+
+
+
